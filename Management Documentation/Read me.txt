@@ -1,0 +1,1 @@
+The management documentation (burndown charts, gantt charts, user stories and project pitch, for example) should be here.
