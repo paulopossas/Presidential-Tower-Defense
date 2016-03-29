@@ -1,0 +1,6 @@
+Unity Tower Defense Tutorial:
+part 1: https://www.raywenderlich.com/107525/create-tower-defense-game-unity-part-1
+part 2: https://www.raywenderlich.com/107529/unity-tower-defense-tutorial-part-2
+
+Unity 2d animations tutorial:
+https://www.raywenderlich.com/66345/unity-2d-tutorial-animations
