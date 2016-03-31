@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{476A4678-6FFE-3BF9-70C7-B8D69BB974F2}") = "TowerDefense-Part2-Complete", "Assembly-CSharp.csproj", "{6CB55B49-6CA4-8C0F-5829-FD4EBBF8792B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CB55B49-6CA4-8C0F-5829-FD4EBBF8792B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB55B49-6CA4-8C0F-5829-FD4EBBF8792B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB55B49-6CA4-8C0F-5829-FD4EBBF8792B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB55B49-6CA4-8C0F-5829-FD4EBBF8792B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
