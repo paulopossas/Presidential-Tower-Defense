@@ -5,14 +5,12 @@ using System.Collections;
 public class Wave {
 	public GameObject enemyPrefab;
 	public float spawnInterval = 2;
-	public int maxEnemies = 20;
+	public int maxEnemies = 10;
 }
 
 public class SpawnEnemy : MonoBehaviour {
 
 	public GameObject[] waypoints;
-	public GameObject testEnemyPrefab;
-
 	public Wave[] waves;
 	public int timeBetweenWaves = 5;
 	

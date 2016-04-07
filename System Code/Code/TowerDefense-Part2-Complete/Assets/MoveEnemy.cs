@@ -7,17 +7,26 @@ public class MoveEnemy : MonoBehaviour {
 	private int currentWaypoint = 0;
 	private float lastWaypointSwitchTime;
 	public float speed = 1.0f;
+	Animator animator;
+
+	const int DIRECTION_LEFT = 0;
+	const int DIRECTION_RIGHT = 1;
+	const int DIRECTION_FRONT = 2;
+	const int DIRECTION_BACK = 3;
 
 	// Use this for initialization
 	void Start () {
 		lastWaypointSwitchTime = Time.time;
+		animator = this.GetComponentInChildren<Animator> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+		RotateIntoMoveDirection();
 		// 1 
 		Vector3 startPosition = waypoints [currentWaypoint].transform.position;
 		Vector3 endPosition = waypoints [currentWaypoint + 1].transform.position;
+
 		// 2 
 		float pathLength = Vector3.Distance (startPosition, endPosition);
 		float totalTimeForPath = pathLength / speed;
@@ -51,6 +60,35 @@ public class MoveEnemy : MonoBehaviour {
 		Vector3 newEndPosition = waypoints [currentWaypoint + 1].transform.position;
 		Vector3 newDirection = (newEndPosition - newStartPosition);
 		//2
+		/*
+		bool movingLeft = false;
+		bool movingRight = false;
+		bool movingUp = false;
+		bool movingDown = false;
+		*/
+
+		//directions:
+		// 0 = left
+		// 1 = right
+		// 2 = front
+		// 3 = back
+
+
+		if (newEndPosition.x < newStartPosition.x) {
+			animator.SetInteger ("direction", DIRECTION_RIGHT);
+		}
+		if (newEndPosition.x > newStartPosition.x){
+			animator.SetInteger ("direction", DIRECTION_LEFT);
+		}
+		if (newEndPosition.y > newStartPosition.y){
+			animator.SetInteger ("direction", DIRECTION_BACK);
+		}
+		if (newEndPosition.y < newStartPosition.y) {
+			animator.SetInteger ("direction", DIRECTION_FRONT);
+		}
+
+
+		/*
 		float x = newDirection.x;
 		float y = newDirection.y;
 		float rotationAngle = Mathf.Atan2 (y, x) * 180 / Mathf.PI;
@@ -59,6 +97,7 @@ public class MoveEnemy : MonoBehaviour {
 			gameObject.transform.FindChild("Sprite").gameObject;
 		sprite.transform.rotation = 
 			Quaternion.AngleAxis(rotationAngle, Vector3.forward);
+			*/
 	}
 
 	public float distanceToGoal() {
