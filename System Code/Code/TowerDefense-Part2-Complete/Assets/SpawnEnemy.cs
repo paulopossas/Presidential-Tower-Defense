@@ -5,7 +5,8 @@ using System.Collections;
 public class Wave {
 	public GameObject [] enemyPrefabs;
 	public float spawnInterval = 2;
-	public int maxEnemies = 20;
+	public int maxEnemies;
+
 }
 
 public class SpawnEnemy : MonoBehaviour {
@@ -13,7 +14,7 @@ public class SpawnEnemy : MonoBehaviour {
 	public GameObject[] waypoints;
 	public Wave[] waves;
 	public int timeBetweenWaves = 5;
-	public int enemyCount;
+	public int enemyCount = 0;
 	
 	private GameManagerBehavior gameManager;
 	
@@ -55,6 +56,7 @@ public class SpawnEnemy : MonoBehaviour {
 			if (enemiesSpawned == waves[currentWave].maxEnemies &&
 			    GameObject.FindGameObjectWithTag("Enemy") == null) {
 				gameManager.Wave++;
+				enemyCount = 0;
 				gameManager.Gold = Mathf.RoundToInt(gameManager.Gold * 1.1f);
 				enemiesSpawned = 0;
 				lastSpawnTime = Time.time;

@@ -54,6 +54,7 @@
      <Compile Include="Assets\PlaceMonster.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\NavigationBtnScript.cs" />
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\ShootEnemies.cs" />
      <Compile Include="Assets\SpawnEnemy.cs" />
