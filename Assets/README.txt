@@ -4,4 +4,4 @@ ASSETS TASK LOG
 
 BOSSES (32px by 32px per frame):
 - DONALD TRUMP: Completed... Down, Up, Left, Right
-- HILARY CLINTON: In Progress...
+- HILARY CLINTON: Completed... Down, Up, Left, Right
