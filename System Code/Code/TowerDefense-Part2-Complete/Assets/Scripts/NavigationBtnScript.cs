@@ -105,6 +105,11 @@ public class NavigationBtnScript : MonoBehaviour {
 		levelSelectBtns.transform.localScale = new Vector3(1,1,1);
 	}
 
+	public void QuitGame()
+	{
+		Application.Quit ();
+	}
+
 	public void toggleSound()
 	{
 		sound = !sound;
