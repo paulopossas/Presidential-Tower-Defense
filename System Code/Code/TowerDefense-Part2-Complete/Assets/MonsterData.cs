@@ -12,10 +12,13 @@ public class MonsterLevel {
 
 public class MonsterData : MonoBehaviour {
 
+	public string id;
+
 	public List<MonsterLevel> levels;
 	private MonsterLevel currentLevel;
 
-	
+	private GameObject progenitor;
+
 	//1
 	public MonsterLevel CurrentLevel {
 		//2
@@ -48,6 +51,16 @@ public class MonsterData : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void SetProgenitor(GameObject m)
+	{
+		progenitor = m;
+	}
+
+	public void setID(string nid)
+	{
+		id = nid;
 	}
 
 	void OnEnable() {
