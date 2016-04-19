@@ -16,4 +16,8 @@ public class UpgradeScript : MonoBehaviour {
 	void OnMouseUp() {
 		transform.parent.transform.GetComponentInChildren<TowerMenuScript> ().upgrade ();
 	}
+
+	void OnMouseOver() {
+		// display tooltip?
+	}
 }

@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class GameManagerBehavior : MonoBehaviour {
 
+	public bool isPaused = false;
+	public bool hasMusic;
+	public bool hasSound;
+
+	private GameObject PauseMenu;
+
 	public Text goldLabel;
 	private int gold;
 	public int Gold {
@@ -12,6 +18,65 @@ public class GameManagerBehavior : MonoBehaviour {
 			gold = value;
     		goldLabel.GetComponent<Text>().text = "GOLD: " + gold;
 		}
+	}
+
+
+	public void establishPauseMenu(GameObject p)
+	{
+		PauseMenu = p;
+		print ("Established Pause Menu");
+	}
+
+	public void pause()
+	{
+		
+
+		Time.timeScale = 0;
+		/*
+		GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+		
+		for (int i = 0; i < enemys.Length; ++i) {
+			enemys [i].GetComponent<MoveEnemy> ().pause ();
+		}
+
+		GameObject[] towers = GameObject.FindGameObjectsWithTag("Monster");
+
+		for (int i = 0; i < towers.Length; ++i) {
+			towers [i].GetComponent<ShootEnemies> ().pause ();
+		}
+
+		
+
+		GameObject.Find ("Road").GetComponent<SpawnEnemy> ().pause ();
+
+		*/
+
+		PauseMenu.GetComponentInChildren<PauseMenuScript> ().openMenu ();
+
+		isPaused = true;
+	}
+
+	public void unpause()
+	{
+		/*
+		GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+		for (int i = 0; i < enemys.Length; ++i) {
+			enemys [i].GetComponent<MoveEnemy> ().unpause ();
+		}
+
+		GameObject[] towers = GameObject.FindGameObjectsWithTag("Monster");
+		for (int i = 0; i < towers.Length; ++i) {
+			towers [i].GetComponent<ShootEnemies> ().unpause ();
+		}
+
+		GameObject.Find ("Road").GetComponent<SpawnEnemy> ().unpause ();
+		*/
+		Time.timeScale = 1;
+
+		PauseMenu.GetComponentInChildren<PauseMenuScript> ().hideMenu ();
+
+		isPaused = false;
 	}
 
 	public Text waveLabel;

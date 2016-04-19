@@ -67,10 +67,10 @@ public class TowerMenuScript : MonoBehaviour {
 		transform.parent.transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0.54f;
 
 		if (isReady) {
-			print ("Ready");
+			//print ("Ready");
 			progenitor.GetComponentInChildren<PlaceMonster> ().show ();
 		} else {
-			print ("not ready");
+			//print ("not ready");
 			isReady = true;
 		}
 	}
