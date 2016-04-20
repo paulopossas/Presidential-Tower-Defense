@@ -9,6 +9,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public bool hasSound;
 
 	private GameObject PauseMenu;
+	private int gameSpeed = 1;
 
 	public Text goldLabel;
 	private int gold;
@@ -25,6 +26,20 @@ public class GameManagerBehavior : MonoBehaviour {
 	{
 		PauseMenu = p;
 		print ("Established Pause Menu");
+	}
+
+	public void setSpeed(int x)
+	{
+		if (x > 0) {
+			if (x < 20) {
+				
+				gameSpeed = x;
+
+				if (!isPaused) {
+					Time.timeScale = x;
+				}
+			}
+		}
 	}
 
 	public void pause()
@@ -72,7 +87,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		GameObject.Find ("Road").GetComponent<SpawnEnemy> ().unpause ();
 		*/
-		Time.timeScale = 1;
+		Time.timeScale = gameSpeed;
 
 		PauseMenu.GetComponentInChildren<PauseMenuScript> ().hideMenu ();
 
