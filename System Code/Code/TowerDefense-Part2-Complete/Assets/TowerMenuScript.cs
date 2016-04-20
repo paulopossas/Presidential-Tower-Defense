@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityTest.IntegrationTestRunner;
 
 public class TowerMenuScript : MonoBehaviour {
 
@@ -15,12 +16,12 @@ public class TowerMenuScript : MonoBehaviour {
 	private Transform ring;
 	private bool menuVisible;
 
-	private GameObject progenitor;
+	public GameObject progenitor;
 
 	public bool isReady = false;
 
 	public GameObject monsterPrefab;
-	private GameObject monster;
+	public GameObject monster;
 
 
 
@@ -37,6 +38,8 @@ public class TowerMenuScript : MonoBehaviour {
 		canBtn = transform.parent.transform.FindChild("Cancel");
 		ring = transform.parent.transform.FindChild("Ring");
 		hideMenu ();
+
+
 
 		//transform.parent.GetComponent<Button>().onClick.AddListener(() => { OnMouseUp(); OnMouseUp(); }); 
 

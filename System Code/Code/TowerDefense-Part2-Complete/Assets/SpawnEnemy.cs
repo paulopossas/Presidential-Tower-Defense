@@ -43,8 +43,8 @@ public class SpawnEnemy : MonoBehaviour {
 				// 3  
 				lastSpawnTime = Time.time;
 				GameObject newEnemy = (GameObject)Instantiate(waves[currentWave].enemyPrefabs[enemyCount]);
-				Debug.Log (currentWave);
-				Debug.Log (enemyCount);
+				//Debug.Log (currentWave);
+				//Debug.Log (enemyCount);
 				if (enemyCount < waves [currentWave].enemyPrefabs.Length) {
 					enemyCount++;
 				}
