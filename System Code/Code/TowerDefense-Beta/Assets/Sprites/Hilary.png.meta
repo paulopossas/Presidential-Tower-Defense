@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 27d7477ad526f384cbe0c96ee3aaf05f
+timeCreated: 1459891832
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Hilary_0
+    21300002: Hilary_1
+    21300004: Hilary_2
+    21300006: Hilary_3
+    21300008: Hilary_4
+    21300010: Hilary_5
+    21300012: Hilary_6
+    21300014: Hilary_7
+    21300016: Hilary_8
+    21300018: Hilary_9
+    21300020: Hilary_10
+    21300022: Hilary_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Hilary_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 80
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 80, y: -40}
+        - {x: 80, y: 40}
+    - name: Hilary_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 82
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 82, y: -40}
+        - {x: 82, y: 40}
+    - name: Hilary_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 84
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 84, y: -40}
+        - {x: 84, y: 40}
+    - name: Hilary_3
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 1
+        width: 80
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 80, y: -40}
+        - {x: 80, y: 40}
+    - name: Hilary_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1
+        width: 82
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 82, y: -40}
+        - {x: 82, y: 40}
+    - name: Hilary_5
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1
+        width: 84
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 84, y: -40}
+        - {x: 84, y: 40}
+    - name: Hilary_6
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1
+        width: 73
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 73, y: -40}
+        - {x: 73, y: 40}
+    - name: Hilary_7
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 1
+        width: 80
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 80, y: -40}
+        - {x: 80, y: 40}
+    - name: Hilary_8
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1
+        width: 84
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 84, y: -40}
+        - {x: 84, y: 40}
+    - name: Hilary_9
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 1
+        width: 86
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 86, y: -40}
+        - {x: 86, y: 40}
+    - name: Hilary_10
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1
+        width: 82
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 82, y: -40}
+        - {x: 82, y: 40}
+    - name: Hilary_11
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1
+        width: 78
+        height: 80
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 40}
+        - {x: 0, y: -40}
+        - {x: 78, y: -40}
+        - {x: 78, y: 40}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
