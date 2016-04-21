@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityTest.IntegrationTestRunner;
+//using UnityTest.IntegrationTestRunner;
 
 public class PlaceMonster : MonoBehaviour {
 
