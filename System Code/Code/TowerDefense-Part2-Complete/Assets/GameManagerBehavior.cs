@@ -151,6 +151,33 @@ public class GameManagerBehavior : MonoBehaviour {
 		Gold = 1000;
 		Wave = 0;
 		Health = 5;
+
+		int party = PlayerPrefs.GetInt ("faction");
+
+		if (party == 1) {
+			isRepublican = false;
+		} else if (party == 2) {
+			isRepublican = true;
+		} else {
+			isRepublican = true;
+		}
+
+
+		// checking if it works
+		if (isRepublican) {
+			print ("Republican party chosen");
+		} else {
+			print ("Democrat party chosen");
+		}
+
+		int level = PlayerPrefs.GetInt ("level");
+		//TO DO: do something with the level
+
+		int music = PlayerPrefs.GetInt ("music");
+		int sound = PlayerPrefs.GetInt ("sound");
+
+		hasMusic = (music == 1);
+		hasSound = (sound == 1);
 	}
 	
 	// Update is called once per frame

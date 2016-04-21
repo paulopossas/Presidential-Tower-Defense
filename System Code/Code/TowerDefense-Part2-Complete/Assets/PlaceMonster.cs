@@ -43,15 +43,15 @@ public class PlaceMonster : MonoBehaviour {
 				menu = (GameObject)Instantiate (upgradeMenuPrefab, transform.position, Quaternion.identity);
 				menu.GetComponentInChildren<TowerMenuScript> ().setProgenitor (gameObject);
 
-				print("Assert: reference equals (menu progenitor)? "  + UnityTest.Assertions.ReferenceEquals (gameObject, menu.GetComponentInChildren<TowerMenuScript> ().progenitor));
-				print("Assert: equals (menu progenitor)? "  +  UnityTest.Assertions.ReferenceEquals (gameObject, menu.GetComponentInChildren<TowerMenuScript> ().progenitor));
+				//print("Assert: reference equals (menu progenitor)? "  + UnityTest.Assertions.ReferenceEquals (gameObject, menu.GetComponentInChildren<TowerMenuScript> ().progenitor));
+				//print("Assert: equals (menu progenitor)? "  +  UnityTest.Assertions.ReferenceEquals (gameObject, menu.GetComponentInChildren<TowerMenuScript> ().progenitor));
 
 
 				monster = (GameObject)Instantiate (monsterPrefab, transform.position, Quaternion.identity);
 				menu.GetComponentInChildren<TowerMenuScript> ().setMonster (monster);
 
-				print("Assert: reference equals (monster)? "  + UnityTest.Assertions.ReferenceEquals (monster, menu.GetComponentInChildren<TowerMenuScript> ().monster));
-				print("Assert: equals (monster)? "  + UnityTest.Assertions.Equals (monster, menu.GetComponentInChildren<TowerMenuScript> ().monster));
+				//print("Assert: reference equals (monster)? "  + UnityTest.Assertions.ReferenceEquals (monster, menu.GetComponentInChildren<TowerMenuScript> ().monster));
+				//print("Assert: equals (monster)? "  + UnityTest.Assertions.Equals (monster, menu.GetComponentInChildren<TowerMenuScript> ().monster));
 
 
 				monster.GetComponent<MonsterData> ().setID ("t" + id); // tower + location id

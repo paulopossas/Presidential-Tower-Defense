@@ -24,6 +24,8 @@ public class PauseBtnScript : MonoBehaviour {
 	{
 		if (gameManager.isPaused) {
 			//print ("Unpausing");
+			//transform.GetComponent<Image
+
 			gameManager.unpause ();
 		} else {
 			//print ("Pausing");
