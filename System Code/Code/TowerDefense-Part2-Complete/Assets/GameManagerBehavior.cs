@@ -54,6 +54,9 @@ public class GameManagerBehavior : MonoBehaviour {
 		int music = PlayerPrefs.GetInt ("music");
 		int sound = PlayerPrefs.GetInt ("sound");
 
+		print ("has sound: " + sound);
+		print ("has music: " + music);
+
 		hasMusic = (music == 1);
 		hasSound = (sound == 1);
 	}
