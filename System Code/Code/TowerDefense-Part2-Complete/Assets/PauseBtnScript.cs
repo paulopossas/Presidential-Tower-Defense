@@ -17,16 +17,16 @@ public class PauseBtnScript : MonoBehaviour {
 
 	void OnClick()
 	{
-		print ("pause");
+		//print ("pause");
 	}
 
 	public void togglePause()
 	{
 		if (gameManager.isPaused) {
-			print ("Unpausing");
+			//print ("Unpausing");
 			gameManager.unpause ();
 		} else {
-			print ("Pausing");
+			//print ("Pausing");
 			gameManager.pause ();
 		}
 	}

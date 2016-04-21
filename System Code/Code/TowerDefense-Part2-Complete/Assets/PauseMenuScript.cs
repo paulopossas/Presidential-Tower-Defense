@@ -34,13 +34,13 @@ public class PauseMenuScript : MonoBehaviour {
 		if (gameManager.hasSound) {
 			// if the game has sound enabled, change the sound button.
 			soundBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
-			print ("sound");
+			//print ("sound");
 		}
 
 		if (gameManager.hasMusic) {
 			// if the game has music enabled, change the music button.
 			musicBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
-			print ("music");
+			//print ("music");
 		}
 	}
 

@@ -8,6 +8,8 @@ public class GameManagerBehavior : MonoBehaviour {
 	public bool hasMusic;
 	public bool hasSound;
 
+	public bool isRepublican;
+
 	private GameObject PauseMenu;
 	private int gameSpeed = 1;
 
@@ -25,7 +27,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public void establishPauseMenu(GameObject p)
 	{
 		PauseMenu = p;
-		print ("Established Pause Menu");
+		//print ("Established Pause Menu");
 	}
 
 	public void setSpeed(int x)

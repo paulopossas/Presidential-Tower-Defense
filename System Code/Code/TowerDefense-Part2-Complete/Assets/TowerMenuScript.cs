@@ -67,11 +67,11 @@ public class TowerMenuScript : MonoBehaviour {
 		canBtn.gameObject.GetComponent<CircleCollider2D> ().radius = 0;
 
 		// collider
-		transform.parent.transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0.54f;
+		//transform.parent.transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0.54f;
 
 		if (isReady) {
 			//print ("Ready");
-			progenitor.GetComponentInChildren<PlaceMonster> ().show ();
+			progenitor.GetComponent<BuildMenuScript>().showSelf();
 		} else {
 			//print ("not ready");
 			isReady = true;
@@ -80,7 +80,7 @@ public class TowerMenuScript : MonoBehaviour {
 
 	public void ShowMenu()
 	{
-		print ("Menu clicked");
+		//print ("Menu clicked");
 		upBtn.localScale = new Vector3 (1,1,1);
 		canBtn.localScale = new Vector3 (1,1,1);
 		ring.localScale = new Vector3 (1,1,1);
@@ -88,12 +88,12 @@ public class TowerMenuScript : MonoBehaviour {
 		upBtn.gameObject.GetComponent<CircleCollider2D> ().radius = 0.4f;
 		canBtn.gameObject.GetComponent<CircleCollider2D> ().radius = 0.4f;
 		// collider
-		transform.parent.transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0;
+		//transform.parent.transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0;
 
 
 		menuVisible = true;
 
-		progenitor.GetComponentInChildren<PlaceMonster> ().hide ();
+		progenitor.GetComponent<BuildMenuScript> ().hideSelf ();
 	}
 
 	public void setMonster(GameObject m)
@@ -143,7 +143,6 @@ public class TowerMenuScript : MonoBehaviour {
 			if (nextLevel != null) {
 				return gameManager.Gold >= nextLevel.cost;
 			} else {
-				print ("level max reached");
 				hideMenu ();
 			}
 		}
@@ -162,7 +161,6 @@ public class TowerMenuScript : MonoBehaviour {
 
 			gameManager.Gold -= monster.GetComponent<MonsterData> ().CurrentLevel.cost;
 		} else {
-			print ("Cannot upgrade");
 		}
 	}
 
@@ -181,8 +179,6 @@ public class TowerMenuScript : MonoBehaviour {
 
 	public void cancel()
 	{
-		// call hideMenus() in parent
-		print("cancel upgrade");
 		hideMenu ();
 	}
 }
