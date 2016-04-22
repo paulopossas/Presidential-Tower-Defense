@@ -1,47 +1,49 @@
-﻿Towers
-Light: Pork-barreler +
--Reps: Shotgun Billy, NRA reps
--Dems: Keneysian Pump (throws money)
+﻿------------------------------- SPRITE ASSETS ------------------------------
+Towers (Total Time: 3 Hours, 30 Minutes)
+	Light: Pork-barreler (Sprite Done) - 1 Hour
+	-Reps: Shotgun Billy, NRA reps
+	-Dems: Keneysian Pump, Throws Money
 
-Heavy: Mudslinger
--Reps: Apprentice. (Fires apprentices)
--Dems: Pot farm
+	Heavy: Mudslinger (Sprite Done) - 30 Mins
+		-Reps: Apprentice Tower
+		-Dems: Pot farm
 
-Anti-Air: Captcha
--Dems: Peacock with a mic
--Reps: Fox with a mic
+	Anti-Air: Captcha (Sprite Done) - 1 Hour
+		-Dems: Peacock with a mic (Sprite Done) - 30 Mins
+		-Reps: Fox with a mic (Sprite Done) - 30 Mins
 
-Anti-world (map-specific)
--Coin flip caucus (Iowa)
--Snowden bomb (DC)
--Chris Christie defense (shuts down a bridge) 
+Enemies (Total Time: 1 Hour, 45 Minutes)
+	Light: Protesters (Hecklers?)
+		-Dems: Donkeys
+		-Reps: Elephants
 
+	Heavy
+		-Dems: Berniebots. (Sprite Done) - 1 Hour
+		-Reps: Trumpets
+		-Rejected: Reps: Rush Limp-paw.
 
-Enemies
-Light: Protesters (Hecklers?)
--Dems: Donkeys
--Reps: Elephants
-
-Heavy
--Dems: Berniebots. No money animation on death?
--Reps: Trumpets
-Rejected: Reps: Rush Limp-paw.
-
-Arial: Twitterbot
-MSNBC -> MSN?
--Dems: Hillary’s emails
--Reps: Website redirectors
-
-Misdirectors:
--Reporters
--Fear tower?
-
-Protestors
--???
+	Arial:
+		-Dems: Hillary’s emails (Sprite Done) - 15 Mins
+		-Reps: Twitter Bird (Sprite Done) - 30 Mins
 
 Bosses
-Hillary: First gentleman. Turns into robot on death. +
-Trump: hair falls off on death (looks like Lex Luther). +
+	-Hillary: First gentleman. (Sprite Done), Turns into robot on death. - 3 Hours
+	-Trump: hair falls off on death. (Sprite Done), looks like Lex Luther - 3 Hours
+
+Maps
+	-Iowa (Sprite Done) - 3 Hours
+	-Washington DC (Sprite Done) - 7 Hours
+	-California (Cut)
+
+Projectiles
+	-Pork Slab (Sprite Done) - 10 Mins
+	-Mud Fling (Sprite Done) - 5 Mins
+	-Captcha Invalid Messages (Sprite Done) - 10 Mins
+
+
+
+
+--------------------------------- BALANCING ---------------------------------
 
 HP
 Light: 100
