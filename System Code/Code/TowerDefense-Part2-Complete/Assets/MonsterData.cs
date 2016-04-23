@@ -70,8 +70,8 @@ public class MonsterData : MonoBehaviour {
 	public MonsterLevel getNextLevel() {
 		int currentLevelIndex = levels.IndexOf (currentLevel);
 		int maxLevelIndex = levels.Count - 1;
-		if (currentLevelIndex < maxLevelIndex) {
-			return levels[currentLevelIndex+1];
+		if (currentLevelIndex < maxLevelIndex - 1) {
+			return levels[currentLevelIndex+2];
 		} else {
 			return null;
 		}
