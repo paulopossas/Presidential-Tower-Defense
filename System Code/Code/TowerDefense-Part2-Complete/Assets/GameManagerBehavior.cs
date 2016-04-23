@@ -30,6 +30,8 @@ public class GameManagerBehavior : MonoBehaviour {
 		Wave = 0;
 		Health = 5;
 
+		setSpeed (1);
+
 		int party = PlayerPrefs.GetInt ("faction");
 
 		if (party == 1) {
@@ -219,6 +221,28 @@ public class GameManagerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetKeyUp (KeyCode.Space)) {
+			if (isPaused) {
+				unpause ();
+			} else {
+				pause ();
+			}
+		}
+
+		if (Input.GetKeyUp (KeyCode.Alpha5)) {
+			setSpeed (5);
+		}
+		if (Input.GetKeyUp (KeyCode.Alpha3)) {
+			setSpeed (3);
+		}
+		if (Input.GetKeyUp (KeyCode.Alpha2)) {
+			setSpeed (2);
+		}
+		if (Input.GetKeyUp (KeyCode.Alpha1)) {
+			setSpeed (1);
+		}
+		if (Input.GetKeyUp (KeyCode.Alpha0)) {
+			setSpeed (10);
+		}
 	}
 }
