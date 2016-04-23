@@ -52,26 +52,31 @@ public class PauseMenuScript : MonoBehaviour {
 	public void toggleSound()
 	{
 		
-		gameManager.hasSound = !gameManager.hasSound;
+
 
 		if (gameManager.hasSound) {
-			soundBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
-		} else {
-
+			gameManager.mute ();
 			soundBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
+		} else {
+			gameManager.unmute ();
+
+			soundBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
 		}
 
 	}
 
 	public void toggleMusic()
 	{
-		gameManager.hasMusic = !gameManager.hasMusic;
+		//gameManager.hasMusic = !gameManager.hasMusic;
+
 
 		if (gameManager.hasMusic) {
-			musicBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
-		} else {
-			
+			gameManager.offmusic ();
 			musicBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
+		} else {
+			gameManager.onmusic ();
+
+			musicBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
 		}
 
 	}

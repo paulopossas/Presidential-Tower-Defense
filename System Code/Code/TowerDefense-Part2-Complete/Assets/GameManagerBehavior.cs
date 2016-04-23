@@ -43,9 +43,9 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		// checking if it works
 		if (isRepublican) {
-			print ("Republican party chosen");
+			//print ("Republican party chosen");
 		} else {
-			print ("Democrat party chosen");
+			//print ("Democrat party chosen");
 		}
 
 		level = PlayerPrefs.GetInt ("level");
@@ -54,8 +54,8 @@ public class GameManagerBehavior : MonoBehaviour {
 		int music = PlayerPrefs.GetInt ("music");
 		int sound = PlayerPrefs.GetInt ("sound");
 
-		print ("has sound: " + sound);
-		print ("has music: " + music);
+		//print ("has sound: " + sound);
+		//print ("has music: " + music);
 
 		hasMusic = (music == 1);
 		hasSound = (sound == 1);
@@ -137,6 +137,30 @@ public class GameManagerBehavior : MonoBehaviour {
 		PauseMenu.GetComponentInChildren<PauseMenuScript> ().hideMenu ();
 
 		isPaused = false;
+	}
+
+	public void mute()
+	{
+		AudioListener.pause = true;
+		hasSound = false;
+	}
+
+	public void unmute()
+	{
+		AudioListener.pause = false;
+		hasSound = true;
+	}
+
+	public void offmusic()
+	{
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource> ().volume = 0;
+		hasMusic = false;
+	}
+
+	public void onmusic()
+	{
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource> ().volume = 0.1f;
+		hasMusic = true;
 	}
 
 	public Text waveLabel;
