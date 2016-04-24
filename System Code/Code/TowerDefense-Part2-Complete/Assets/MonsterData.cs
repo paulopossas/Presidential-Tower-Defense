@@ -18,6 +18,7 @@ public class MonsterData : MonoBehaviour {
 	private MonsterLevel currentLevel;
 
 	private GameObject progenitor;
+	private int playerFaction;
 
 	//1
 	public MonsterLevel CurrentLevel {
@@ -45,7 +46,7 @@ public class MonsterData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		playerFaction = PlayerPrefs.GetInt ("Faction");
 	}
 	
 	// Update is called once per frame
@@ -67,6 +68,9 @@ public class MonsterData : MonoBehaviour {
  		CurrentLevel = levels[0];
 	}
 
+	//index of the levels: 0- base; 1- republican; 2- democrat
+	//faction variable: 1- democrat; 2- republican
+
 	public MonsterLevel getNextLevel() {
 		int currentLevelIndex = levels.IndexOf (currentLevel);
 		int maxLevelIndex = levels.Count - 1;
@@ -78,9 +82,16 @@ public class MonsterData : MonoBehaviour {
 	}
 	
 	public void increaseLevel() {
-		int currentLevelIndex = levels.IndexOf(currentLevel);
+		/*int currentLevelIndex = levels.IndexOf(currentLevel);
 		if (currentLevelIndex < levels.Count - 1) {
 			CurrentLevel = levels[currentLevelIndex + 1];
-		}
+		}*/
+		if(CurrentLevel == levels[0]){
+			if (playerFaction == 1) { // Democrat: upgrades are index 2 
+				CurrentLevel = levels [2];
+			} else { // Republican: upgrades are index 1
+				CurrentLevel = levels [1];
+			}
+		}	
 	}
 }

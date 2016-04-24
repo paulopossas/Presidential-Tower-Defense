@@ -46,10 +46,9 @@ public class NavigationBtnScript : MonoBehaviour {
 			break;
 		default:
 			isValid = false;
-			break;
-
+			break;		
 		}
-
+		PlayerPrefs.SetInt ("Faction", faction);
 		if (isValid) {
 			ToLevelSelect ();
 		}
