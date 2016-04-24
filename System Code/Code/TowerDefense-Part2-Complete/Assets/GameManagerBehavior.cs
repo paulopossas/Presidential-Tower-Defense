@@ -8,6 +8,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public bool hasMusic;
 	public bool hasSound;
 	public int level;
+	public static int mapID;
 
 	public bool isRepublican;
 
@@ -26,6 +27,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		Gold = 1000;
 		Wave = 0;
 		Health = 5;

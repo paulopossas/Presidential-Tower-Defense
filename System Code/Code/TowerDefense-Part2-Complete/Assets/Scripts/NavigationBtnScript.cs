@@ -19,7 +19,7 @@ public class NavigationBtnScript : MonoBehaviour {
 	void Start()
 	{
 		//helpMenuView = GameObject.FindGameObjectWithTag ("HelpMenu");
-
+		PlayerPrefs.SetInt("PlayLevel", 0);
 	}
 
 	// Use this for initialization
@@ -64,6 +64,9 @@ public class NavigationBtnScript : MonoBehaviour {
 		case 1:
 			levelChosen = input;
 			break;
+		case 2:
+			levelChosen = input;
+			break;
 		default:
 			isValid = false;
 			break;
@@ -77,7 +80,23 @@ public class NavigationBtnScript : MonoBehaviour {
 	public void StartLevel(int levelChosen)
 	{
 		print ("Move to chosen level");
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
+		//UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
+		switch (levelChosen) {
+		case 1:
+			PlayerPrefs.SetInt ("PlayLevel", 1);
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/Iowa");
+			break;
+		case 2:
+			PlayerPrefs.SetInt ("PlayLevel", 2);
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
+			break;
+		case 3:
+			//Still need one more map
+			//For now, going to return to TitleScreen
+			PlayerPrefs.SetInt ("PlayLevel", 0);
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
+			break;
+		}
 		//Application.Load ("../GameScene.unity");
 	}
 
@@ -124,6 +143,17 @@ public class NavigationBtnScript : MonoBehaviour {
 	{
 		//what should this menu have?
 		// TODO: Make the menu actually display properly
+	}
+
+	public void nextLevel(){
+		int playLevel = PlayerPrefs.GetInt ("PlayLevel");
+		playLevel++;
+		if (playLevel > 3) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
+		} else {
+			StartLevel (playLevel);
+		}
+
 	}
 
 	// Update is called once per frame

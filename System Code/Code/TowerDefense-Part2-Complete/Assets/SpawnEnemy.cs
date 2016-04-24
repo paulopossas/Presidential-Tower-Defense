@@ -55,6 +55,7 @@ public class SpawnEnemy : MonoBehaviour {
 			// 4 
 			if (enemiesSpawned == waves[currentWave].maxEnemies &&
 			    GameObject.FindGameObjectWithTag("Enemy") == null) {
+
 				gameManager.Wave++;
 				enemyCount = 0;
 				gameManager.Gold = Mathf.RoundToInt(gameManager.Gold * 1.1f);
@@ -63,9 +64,24 @@ public class SpawnEnemy : MonoBehaviour {
 			}
 			// 5 
 		} else {
+			int playLevel = PlayerPrefs.GetInt ("PlayLevel");
+			Debug.Log (playLevel);
+			switch (playLevel) {
+			case 1:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapOneEnd");
+				break;
+			case 2:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapTwoEnd");
+				break;
+			case 3:
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
+				break;
+			}
+			/*
 			gameManager.gameOver = true;
 			GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameWon");
 			gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
+			*/
 		}	
 	}
 }
