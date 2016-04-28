@@ -12,7 +12,8 @@ public class MonsterLevel {
 
 public class MonsterData : MonoBehaviour {
 
-	public string id;
+	//public string id;
+	public bool canTargetFlying = false;
 
 	public List<MonsterLevel> levels;
 	private MonsterLevel currentLevel;
@@ -59,10 +60,12 @@ public class MonsterData : MonoBehaviour {
 		progenitor = m;
 	}
 
+	/*
 	public void setID(string nid)
 	{
 		id = nid;
 	}
+	*/
 
 	void OnEnable() {
  		CurrentLevel = levels[0];

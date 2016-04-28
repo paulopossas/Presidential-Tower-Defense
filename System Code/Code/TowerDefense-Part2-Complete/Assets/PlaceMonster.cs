@@ -54,8 +54,8 @@ public class PlaceMonster : MonoBehaviour {
 				//print("Assert: equals (monster)? "  + UnityTest.Assertions.Equals (monster, menu.GetComponentInChildren<TowerMenuScript> ().monster));
 
 
-				monster.GetComponent<MonsterData> ().setID ("t" + id); // tower + location id
-				menu.GetComponentInChildren<TowerMenuScript> ().setID ("m" + id); // menu + location id
+				//monster.GetComponent<MonsterData> ().setID ("t" + id); // tower + location id
+				//menu.GetComponentInChildren<TowerMenuScript> ().setID ("m" + id); // menu + location id
 				//4
 				AudioSource audioSource = gameObject.GetComponent<AudioSource> ();
 				audioSource.PlayOneShot (audioSource.clip);
