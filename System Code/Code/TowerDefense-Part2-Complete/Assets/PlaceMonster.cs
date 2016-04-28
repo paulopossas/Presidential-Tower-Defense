@@ -37,8 +37,8 @@ public class PlaceMonster : MonoBehaviour {
 		if (!hasMonster ()) {
 			if (canPlaceMonster ()) {
 				//3
-				Vector3 v = gameObject.transform.localScale;
-				string id = v.x + " " + v.y;
+				//Vector3 v = gameObject.transform.localScale;
+				//string id = v.x + " " + v.y;
 
 				menu = (GameObject)Instantiate (upgradeMenuPrefab, transform.position, Quaternion.identity);
 				menu.GetComponentInChildren<TowerMenuScript> ().setProgenitor (gameObject);

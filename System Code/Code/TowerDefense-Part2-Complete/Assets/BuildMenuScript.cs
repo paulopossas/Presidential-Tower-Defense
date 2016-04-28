@@ -132,8 +132,8 @@ public class BuildMenuScript : MonoBehaviour {
 	private void buildTower(GameObject towerPrefab)
 	{
 
-		Vector3 v = gameObject.transform.localScale;
-		string id = v.x + " " + v.y;
+		//Vector3 v = gameObject.transform.localScale;
+		//string id = v.x + " " + v.y;
 
 		upgradeMenu = (GameObject)Instantiate (upgradeMenuPrefab, transform.position, Quaternion.identity);
 		upgradeMenu.GetComponentInChildren<TowerMenuScript> ().setProgenitor (gameObject);

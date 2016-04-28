@@ -7,6 +7,7 @@ public class MoveEnemy : MonoBehaviour {
 	private int currentWaypoint = 0;
 	private float lastWaypointSwitchTime;
 	public float speed = 1.0f;
+	public bool isFlying = false;
 	Animator animator;
 
 	const int DIRECTION_LEFT = 0;
