@@ -5,7 +5,7 @@ using System.Collections;
 
 public class TowerMenuScript : MonoBehaviour {
 
-	public string id;
+	//public string id;
 
 	private GameManagerBehavior gameManager;
 
@@ -50,10 +50,12 @@ public class TowerMenuScript : MonoBehaviour {
 		progenitor = p;
 	}
 
+	/*
 	public void setID(string nid)
 	{
 		id = nid;
 	}
+	*/
 
 	public void hideMenu()
 	{

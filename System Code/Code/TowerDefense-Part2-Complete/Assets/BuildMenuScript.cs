@@ -142,8 +142,8 @@ public class BuildMenuScript : MonoBehaviour {
 		upgradeMenu.GetComponentInChildren<TowerMenuScript> ().setMonster (tower);
 
 
-		tower.GetComponent<MonsterData> ().setID ("t" + id); // tower + location id
-		upgradeMenu.GetComponentInChildren<TowerMenuScript> ().setID ("m" + id); // menu + location id
+		//tower.GetComponent<MonsterData> ().setID ("t" + id); // tower + location id
+		//upgradeMenu.GetComponentInChildren<TowerMenuScript> ().setID ("m" + id); // menu + location id
 		//4
 		AudioSource audioSource = gameObject.GetComponent<AudioSource> ();
 		audioSource.PlayOneShot (audioSource.clip);

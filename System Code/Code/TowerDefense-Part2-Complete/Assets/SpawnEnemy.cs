@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Wave {
 	public GameObject [] enemyPrefabs;
 	public float spawnInterval = 2;
 	public int maxEnemies;
+	public List<GameObject> prefabs;
 
 }
 
@@ -21,12 +23,59 @@ public class SpawnEnemy : MonoBehaviour {
 	private float lastSpawnTime;
 	private int enemiesSpawned = 0;
 
+	public GameObject[] validEnemies;
+
+
 	// Use this for initialization
 	void Start () {
 		lastSpawnTime = Time.time;
 		gameManager =
 			GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
+
+		for (int i = 0; i < waves.Length; ++i) {
+
+			if (waves [i].enemyPrefabs.Length < 1) {
+				GenerateRandomWave(waves[i], 5, 20);
+			}
+		}
 		
+	}
+
+
+	void GenerateRandomWave(Wave w, int minLength, int maxLength) {
+		int randomNumber = (int) (Random.value * (maxLength - minLength)) + minLength;
+
+		GenerateWave (randomNumber, w);
+	}
+
+	void GenerateWave(int numEnemies, Wave w) {
+		if (validEnemies.Length > 0) {
+
+
+			//w.enemyPrefabs.Initialize ();
+			GameObject[] enemies = new GameObject[numEnemies];
+			w.enemyPrefabs = enemies;
+			//enemies.CopyTo (w.enemyPrefabs, 0);
+
+
+			w.maxEnemies = numEnemies;
+			//Random.seed (65535);
+			for (int i = 0; i < numEnemies; ++i) {
+				int randomNumber = ((int)(Random.value * 1000f)) % validEnemies.Length;
+
+				w.enemyPrefabs[i] = validEnemies[randomNumber];
+			}
+			//enemies.CopyTo (w.enemyPrefabs, 0);
+
+			randomizeSpawnInterval (w, 0.5f, 4f);
+
+		} else {
+		}
+	}
+
+	void randomizeSpawnInterval(Wave w, float minInterval, float maxInterval)
+	{
+		w.spawnInterval = Random.value * (maxInterval - minInterval) + minInterval;
 	}
 	
 	// Update is called once per frame
