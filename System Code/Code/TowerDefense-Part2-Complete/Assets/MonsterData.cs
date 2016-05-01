@@ -8,6 +8,7 @@ public class MonsterLevel {
   public GameObject visualization;
   public GameObject bullet;
   public float fireRate;
+
 }
 
 public class MonsterData : MonoBehaviour {

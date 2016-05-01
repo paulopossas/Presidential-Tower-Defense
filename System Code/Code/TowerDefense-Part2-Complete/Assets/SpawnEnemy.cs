@@ -57,13 +57,23 @@ public class SpawnEnemy : MonoBehaviour {
 			w.enemyPrefabs = enemies;
 			//enemies.CopyTo (w.enemyPrefabs, 0);
 
-
+			int playerFaction = PlayerPrefs.GetInt ("Faction");
 			w.maxEnemies = numEnemies;
+			bool decided = false;
 			//Random.seed (65535);
 			for (int i = 0; i < numEnemies; ++i) {
-				int randomNumber = ((int)(Random.value * 1000f)) % validEnemies.Length;
-
-				w.enemyPrefabs[i] = validEnemies[randomNumber];
+				while (!decided) {
+					int randomNumber = ((int)(Random.value * 1000f)) % validEnemies.Length;
+					int candidateEnemyFaction = validEnemies [randomNumber].GetComponent<MoveEnemy> ().faction;
+					Debug.Log ("player faction :"+playerFaction);
+					Debug.Log ("enemy faction :" +candidateEnemyFaction);
+					if (candidateEnemyFaction != playerFaction) {
+						w.enemyPrefabs[i] = validEnemies[randomNumber];
+						Debug.Log ("enemy added");
+						decided = true;
+					}
+				}
+				decided = false;
 			}
 			//enemies.CopyTo (w.enemyPrefabs, 0);
 

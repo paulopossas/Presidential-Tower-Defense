@@ -8,6 +8,7 @@ public class MoveEnemy : MonoBehaviour {
 	private float lastWaypointSwitchTime;
 	public float speed = 1.0f;
 	public bool isFlying = false;
+	public int faction; // 1 - democrat, 2 - republican
 	Animator animator;
 
 	const int DIRECTION_LEFT = 0;
