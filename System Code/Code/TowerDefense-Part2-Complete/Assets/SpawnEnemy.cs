@@ -65,11 +65,11 @@ public class SpawnEnemy : MonoBehaviour {
 				while (!decided) {
 					int randomNumber = ((int)(Random.value * 1000f)) % validEnemies.Length;
 					int candidateEnemyFaction = validEnemies [randomNumber].GetComponent<MoveEnemy> ().faction;
-					Debug.Log ("player faction :"+playerFaction);
-					Debug.Log ("enemy faction :" +candidateEnemyFaction);
+					//Debug.Log ("player faction :"+playerFaction);
+					//Debug.Log ("enemy faction :" +candidateEnemyFaction);
 					if (candidateEnemyFaction != playerFaction) {
 						w.enemyPrefabs[i] = validEnemies[randomNumber];
-						Debug.Log ("enemy added");
+						//Debug.Log ("enemy added");
 						decided = true;
 					}
 				}

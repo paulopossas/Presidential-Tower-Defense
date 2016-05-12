@@ -63,6 +63,19 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		hasMusic = (music == 1);
 		hasSound = (sound == 1);
+
+		if (hasMusic) {
+			onmusic ();
+		} else {
+			offmusic ();
+		}
+
+		if (hasSound) {
+			unmute ();
+		} else {
+			mute ();
+			offmusic (); // this line might be unneeded
+		}
 	}
 
 	// modifies the road and background (and possibly the spawner) to match the given level

@@ -79,6 +79,10 @@ public class NavigationBtnScript : MonoBehaviour {
 	public void StartLevel(int levelChosen)
 	{
 		print ("Move to chosen level");
+
+		PlayerPrefs.SetInt ("music", music ? 1 : 0);
+		PlayerPrefs.SetInt ("sound", sound ? 1 : 0);
+
 		//UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
 		switch (levelChosen) {
 		case 1:

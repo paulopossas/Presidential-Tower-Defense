@@ -60,6 +60,14 @@ public class BulletBehavior : MonoBehaviour {
 		}	
 	}
 
+	public void setStats(float spd, float dmg, float aoe, float splash)
+	{
+		speed = spd;
+		damage = dmg;
+		aoeRange = aoe;
+		splashFactor = splash;
+	}
+
 	void AssignDamage()
 	{
 		//print ("Assigning damage");

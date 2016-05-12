@@ -55,15 +55,32 @@ public class PauseMenuScript : MonoBehaviour {
 
 
 		if (gameManager.hasSound) {
-			gameManager.mute ();
-			soundBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
+			offSound ();
 		} else {
-			gameManager.unmute ();
-
-			soundBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
+			onSound ();
 		}
 
 	}
+
+	public void offSound()
+	{
+		gameManager.mute ();
+		soundBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
+
+		gameManager.offmusic ();
+		musicBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
+	}
+
+	public void onSound()
+	{
+		gameManager.unmute ();
+		soundBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
+
+		gameManager.onmusic ();
+		musicBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
+	}
+
+
 
 	public void toggleMusic()
 	{
@@ -75,7 +92,6 @@ public class PauseMenuScript : MonoBehaviour {
 			musicBtn.transform.FindChild("X").localScale = new Vector3(1,1,1);
 		} else {
 			gameManager.onmusic ();
-
 			musicBtn.transform.FindChild("X").localScale = new Vector3(0,0,0);
 		}
 
