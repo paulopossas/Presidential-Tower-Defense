@@ -52,7 +52,14 @@ public class GameManagerBehavior : MonoBehaviour {
 			//print ("Democrat party chosen");
 		}
 
-		level = PlayerPrefs.GetInt ("level");
+		int tempLevel = PlayerPrefs.GetInt ("CurrentLevel");
+
+		if (tempLevel != 0) {
+			level = tempLevel;
+		} else {
+			PlayerPrefs.SetInt ("CurrentLevel", level);
+		}
+
 		//TO DO: do something with the level
 
 		int music = PlayerPrefs.GetInt ("music");
@@ -237,6 +244,13 @@ public class GameManagerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyUp (KeyCode.Space)) {
+			if (isPaused) {
+				unpause ();
+			} else {
+				pause ();
+			}
+		}
+		if (Input.GetKeyUp (KeyCode.P)) {
 			if (isPaused) {
 				unpause ();
 			} else {

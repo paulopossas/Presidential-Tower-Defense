@@ -31,8 +31,6 @@ public class NavigationBtnScript : MonoBehaviour {
 		mainMenuBtns = GameObject.FindGameObjectWithTag ("MainMenu");
 		factionSelectBtns = GameObject.FindGameObjectWithTag ("SelectFaction");
 		levelSelectBtns = GameObject.FindGameObjectWithTag ("SelectLevel");
-		GameObject btn = GameObject.FindGameObjectWithTag ("Lvl3Btn");
-		btn.SetActive (false);
 		optionsMenuBtns = GameObject.FindGameObjectWithTag ("OptionsMenu");
 		//soundBtn = optionsMenuBtns.transform.FindChild ("SoundBtn");
 		//musicBtn = optionsMenuBtns.transform.FindChild ("MusicBtn");
@@ -97,17 +95,21 @@ public class NavigationBtnScript : MonoBehaviour {
 		//UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
 		switch (levelChosen) {
 		case 1:
-			PlayerPrefs.SetInt ("PlayLevel", 1);
+			PlayerPrefs.SetInt ("CurrentLevel", 1);
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/Iowa");
 			break;
 		case 2:
-			PlayerPrefs.SetInt ("PlayLevel", 2);
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
+			PlayerPrefs.SetInt ("CurrentLevel", 2);
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/WashingtonDay");
 			break;
 		case 3:
 			//Still need one more map
-			//For now, going to return to TitleScreen
-			PlayerPrefs.SetInt ("PlayLevel", 0);
+			//For now, going to the reskinned version of level 2
+			PlayerPrefs.SetInt ("CurrentLevel", 3);
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/WashingtonNight");
+			break;
+		case 0:
+			PlayerPrefs.SetInt ("CurrentLevel", 0);
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
 			break;
 		}
@@ -187,14 +189,28 @@ public class NavigationBtnScript : MonoBehaviour {
 	}
 
 	public void nextLevel(){
-		int playLevel = PlayerPrefs.GetInt ("PlayLevel");
-		playLevel++;
-		if (playLevel > 3) {
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
-		} else {
-			StartLevel (playLevel);
+
+		PlayerPrefs.SetInt ("music", music ? 1 : 0);
+		PlayerPrefs.SetInt ("sound", sound ? 1 : 0);
+
+		int maxLevel = PlayerPrefs.GetInt ("MaxLevel");
+		int beatenLevel = PlayerPrefs.GetInt ("CurrentLevel");
+		if (beatenLevel >= maxLevel) {
+			PlayerPrefs.SetInt ("MaxLevel", beatenLevel + 1);
+
+			maxLevel = beatenLevel + 1;
 		}
 
+		if (beatenLevel >= 3) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
+		} else {
+			PlayerPrefs.SetInt ("CurrentLevel", beatenLevel + 1);
+			StartLevel (beatenLevel + 1);
+		}
+	}
+
+	public void toTitleScreen(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
 	}
 
 	// Update is called once per frame
