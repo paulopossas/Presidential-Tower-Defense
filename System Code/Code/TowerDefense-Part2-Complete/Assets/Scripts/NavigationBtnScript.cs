@@ -189,12 +189,16 @@ public class NavigationBtnScript : MonoBehaviour {
 	public void nextLevel(){
 		int playLevel = PlayerPrefs.GetInt ("PlayLevel");
 		playLevel++;
-		if (playLevel > 3) {
+		if (playLevel > 2) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
 		} else {
 			StartLevel (playLevel);
 		}
 
+	}
+
+	public void toTitleScreen(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
 	}
 
 	// Update is called once per frame
