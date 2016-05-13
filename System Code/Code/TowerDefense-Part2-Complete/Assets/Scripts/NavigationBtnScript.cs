@@ -75,6 +75,9 @@ public class NavigationBtnScript : MonoBehaviour {
 		case 2:
 			levelChosen = input;
 			break;
+		case 3:
+			levelChosen = input;
+			break;
 		default:
 			isValid = false;
 			break;
@@ -209,11 +212,7 @@ public class NavigationBtnScript : MonoBehaviour {
 				StartLevel (beatenLevel + 1);
 			}
 		}
-	}
 
-	public void toTitleScreen(){
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
-	}
 
 	public void toTitleScreen(){
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");

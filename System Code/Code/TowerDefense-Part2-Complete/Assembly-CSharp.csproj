@@ -50,6 +50,7 @@
      <Compile Include="Assets\BulletBehavior.cs" />
      <Compile Include="Assets\CancelBuildScript.cs" />
      <Compile Include="Assets\CancelUpgradeScript.cs" />
+     <Compile Include="Assets\EndLevelMessageScript.cs" />
      <Compile Include="Assets\EnemyDestructionDelegate.cs" />
      <Compile Include="Assets\GameManagerBehavior.cs" />
      <Compile Include="Assets\HealthBar.cs" />

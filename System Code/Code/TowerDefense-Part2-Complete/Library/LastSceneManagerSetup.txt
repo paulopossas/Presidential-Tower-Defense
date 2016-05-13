@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/FailedMap.unity
+- path: Assets/Scenes/Iowa.unity
   isLoaded: 1
   isActive: 1
