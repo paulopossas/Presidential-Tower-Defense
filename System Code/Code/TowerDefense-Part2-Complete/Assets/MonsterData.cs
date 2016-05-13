@@ -8,6 +8,12 @@ public class MonsterLevel {
   public GameObject visualization;
   public GameObject bullet;
   public float fireRate;
+	public float damage;
+	public float splashFactor;
+	public float aoeRange;
+	public float bulletSpeed;
+	public string name;
+	public string towerType;
 
 }
 
@@ -79,7 +85,11 @@ public class MonsterData : MonoBehaviour {
 		int currentLevelIndex = levels.IndexOf (currentLevel);
 		int maxLevelIndex = levels.Count - 1;
 		if (currentLevelIndex < maxLevelIndex - 1) {
-			return levels[currentLevelIndex+2];
+			if (playerFaction == 1) {
+				return levels [currentLevelIndex + 2]; // testing a change on this line
+			} else {
+				return levels [currentLevelIndex + 1]; // testing a change on this line
+			}
 		} else {
 			return null;
 		}

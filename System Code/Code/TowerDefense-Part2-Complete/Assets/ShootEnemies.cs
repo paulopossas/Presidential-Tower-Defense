@@ -84,10 +84,13 @@ public class ShootEnemies : MonoBehaviour {
 		// 2 
 		GameObject newBullet = (GameObject)Instantiate (bulletPrefab);
 		newBullet.transform.position = startPosition;
+
 		BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
 		bulletComp.target = target.gameObject;
 		bulletComp.startPosition = startPosition;
 		bulletComp.targetPosition = targetPosition;
+		bulletComp.setStats (monsterData.CurrentLevel.bulletSpeed, monsterData.CurrentLevel.damage, 
+			monsterData.CurrentLevel.aoeRange, monsterData.CurrentLevel.splashFactor);
 		
 		// 3 
 		/* no animation for shooting

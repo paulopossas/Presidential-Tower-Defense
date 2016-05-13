@@ -37,6 +37,8 @@ public class TowerMenuScript : MonoBehaviour {
 		upBtn = transform.parent.transform.FindChild("Upgrade");
 		canBtn = transform.parent.transform.FindChild("Cancel");
 		ring = transform.parent.transform.FindChild("Ring");
+
+
 		hideMenu ();
 
 
@@ -94,6 +96,15 @@ public class TowerMenuScript : MonoBehaviour {
 
 
 		menuVisible = true;
+
+		MonsterLevel nextLevel = monster.GetComponent<MonsterData> ().getNextLevel ();
+		if (nextLevel != null) {
+			upBtn.GetComponent<UpgradeScript> ().towername = nextLevel.name;
+			upBtn.GetComponent<UpgradeScript> ().towertype = nextLevel.towerType;
+			upBtn.GetComponent<UpgradeScript> ().damage = nextLevel.damage;
+			upBtn.GetComponent<UpgradeScript> ().upgradeCost = nextLevel.cost;
+		}
+
 
 		progenitor.GetComponent<BuildMenuScript> ().hideSelf ();
 	}
@@ -172,9 +183,10 @@ public class TowerMenuScript : MonoBehaviour {
 		// call upgradeMonster in parent
 		if (canUpgradeMonster ()) {
 			upgradeMonster ();
+			hideMenu ();
 			AudioSource audio = GameObject.Find ("Menu").GetComponent<AudioSource> ();
 			audio.PlayOneShot (audio.clip);
-			hideMenu ();
+
 		}
 
 

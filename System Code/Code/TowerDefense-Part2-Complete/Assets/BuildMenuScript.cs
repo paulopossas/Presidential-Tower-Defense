@@ -8,7 +8,7 @@ public class BuildMenuScript : MonoBehaviour {
 	private Transform b3Btn;
 	private Transform canBtn;
 	private Transform ring;
-	private bool menuVisible;
+	//private bool menuVisible;
 
 	public GameObject upgradeMenuPrefab;
 
@@ -86,7 +86,7 @@ public class BuildMenuScript : MonoBehaviour {
 		b3Btn.localScale = new Vector3 (0,0,0);
 		canBtn.localScale = new Vector3 (0,0,0);
 		ring.localScale = new Vector3 (0,0,0);
-		menuVisible = false;
+		//menuVisible = false;
 
 		b1Btn.gameObject.GetComponent<CircleCollider2D> ().radius = 0;
 		b2Btn.gameObject.GetComponent<CircleCollider2D> ().radius = 0;
@@ -114,7 +114,7 @@ public class BuildMenuScript : MonoBehaviour {
 		//transform.FindChild ("Collider").gameObject.GetComponent<CircleCollider2D> ().radius = 0;
 
 
-		menuVisible = true;
+		//menuVisible = true;
 
 	}
 
@@ -147,6 +147,8 @@ public class BuildMenuScript : MonoBehaviour {
 		//4
 		AudioSource audioSource = gameObject.GetComponent<AudioSource> ();
 		audioSource.PlayOneShot (audioSource.clip);
+
+		//tower.GetComponent<MonsterData>().
 
 		gameManager.Gold -= tower.GetComponent<MonsterData> ().CurrentLevel.cost;
 

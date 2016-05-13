@@ -47,8 +47,9 @@ public class BulletBehavior : MonoBehaviour {
 
 		float k = transform.rotation.z;
 
-		transform.Rotate (new Vector3 (0, 0, k - Mathf.Asin (distanceX / distanceTotal)));
-
+		if (!gameManager.isPaused){
+			transform.Rotate (new Vector3 (0, 0, k - Mathf.Asin (distanceX / distanceTotal)));
+		}
 		float timeInterval = Time.time - startTime;
 		gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, timeInterval * speed / distance);
 
@@ -58,6 +59,14 @@ public class BulletBehavior : MonoBehaviour {
 			AssignDamage ();
 			Destroy(gameObject);
 		}	
+	}
+
+	public void setStats(float spd, float dmg, float aoe, float splash)
+	{
+		speed = spd;
+		damage = dmg;
+		aoeRange = aoe;
+		splashFactor = splash;
 	}
 
 	void AssignDamage()

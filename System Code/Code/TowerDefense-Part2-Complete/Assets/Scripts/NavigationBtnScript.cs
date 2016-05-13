@@ -6,11 +6,15 @@ public class NavigationBtnScript : MonoBehaviour {
 	public GameObject mainMenuBtns;
 	public GameObject factionSelectBtns;
 	public GameObject levelSelectBtns;
+	public GameObject optionsMenuBtns;
+
+	public GameObject musicBtn;
+	public GameObject soundBtn;
 
 	public GameObject helpMenuView;
 
-	public bool sound = true;
-	public bool music = true;
+	public bool sound = false;
+	public bool music = false;
 
 	// this is changed as the user makes decisions about their faction.
 	public int faction = 0; // 1 for democrat, 2 for republican.
@@ -27,10 +31,15 @@ public class NavigationBtnScript : MonoBehaviour {
 		mainMenuBtns = GameObject.FindGameObjectWithTag ("MainMenu");
 		factionSelectBtns = GameObject.FindGameObjectWithTag ("SelectFaction");
 		levelSelectBtns = GameObject.FindGameObjectWithTag ("SelectLevel");
+		optionsMenuBtns = GameObject.FindGameObjectWithTag ("OptionsMenu");
+		//soundBtn = optionsMenuBtns.transform.FindChild ("SoundBtn");
+		//musicBtn = optionsMenuBtns.transform.FindChild ("MusicBtn");
 
 		mainMenuBtns.transform.localScale = new Vector3(1,1,1);
 		factionSelectBtns.transform.localScale = new Vector3(0,0,0);
 		levelSelectBtns.transform.localScale = new Vector3(0,0,0);
+		optionsMenuBtns.transform.localScale = new Vector3(0,0,0);
+
 
 	}
 
@@ -78,7 +87,11 @@ public class NavigationBtnScript : MonoBehaviour {
 
 	public void StartLevel(int levelChosen)
 	{
-		print ("Move to chosen level");
+		//print ("Move to chosen level");
+
+		PlayerPrefs.SetInt ("music", music ? 1 : 0);
+		PlayerPrefs.SetInt ("sound", sound ? 1 : 0);
+
 		//UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/GameScene");
 		switch (levelChosen) {
 		case 1:
@@ -104,7 +117,18 @@ public class NavigationBtnScript : MonoBehaviour {
 		mainMenuBtns.transform.localScale = new Vector3(1,1,1);
 		factionSelectBtns.transform.localScale = new Vector3(0,0,0);
 		levelSelectBtns.transform.localScale = new Vector3(0,0,0);
+	}
 
+	public void ToOptions()
+	{
+		mainMenuBtns.transform.Find("OptionsBtn").transform.localScale = new Vector3(0,0,0);
+		optionsMenuBtns.transform.localScale = new Vector3 (1, 1, 1);
+	}
+
+	public void FromOptions()
+	{
+		mainMenuBtns.transform.Find("OptionsBtn").transform.localScale = new Vector3(1,1,1);
+		optionsMenuBtns.transform.localScale = new Vector3 (0,0,0);
 	}
 
 	public void ToSelectFaction()
@@ -130,12 +154,28 @@ public class NavigationBtnScript : MonoBehaviour {
 
 	public void toggleSound()
 	{
-		sound = !sound;
+
+		if (sound) {
+			sound = false;
+			optionsMenuBtns.transform.FindChild("SoundBtn").FindChild ("X").localScale = new Vector3 (0.45f,0.45f,0.45f);
+
+			music = false;
+			optionsMenuBtns.transform.FindChild("MusicBtn").FindChild ("X").localScale = new Vector3 (0.45f,0.45f,0.45f);
+		} else {
+			sound = true;
+			optionsMenuBtns.transform.FindChild("SoundBtn").FindChild ("X").localScale = new Vector3 (0, 0, 0);
+		}
 	}
 
 	public void toggleMusic()
 	{
 		music = !music;
+
+		if (!music) {
+			optionsMenuBtns.transform.FindChild("MusicBtn").FindChild ("X").localScale = new Vector3 (0.45f,0.45f,0.45f);
+		} else {
+			optionsMenuBtns.transform.FindChild("MusicBtn").FindChild ("X").localScale = new Vector3 (0, 0, 0);
+		}
 	}
 
 	public void toggleHelp()
