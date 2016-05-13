@@ -13,7 +13,7 @@ public class UpgradeScript : MonoBehaviour {
 
 
 
-	int[] labelcoords = {-100,-100,80,60};
+	int[] labelcoords = {-100,-100,100,60};
 
 	int tooltipDelay = 0;
 	bool canHideTooltip = true;

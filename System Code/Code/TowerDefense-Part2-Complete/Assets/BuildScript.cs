@@ -14,7 +14,7 @@ public class BuildScript : MonoBehaviour {
 	bool canHideTooltip = true;
 	bool istooltipVisible = false;
 	public GUIStyle tooltipStyle;
-	int[] labelcoords = {-100,-100,80,60};
+	int[] labelcoords = {-100,-100,90,60};
 
 	public GameObject towerPrefab;
 
