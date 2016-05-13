@@ -11,12 +11,34 @@ public class Wave {
 
 }
 
+[System.Serializable]
+public class WaveRandomizerDifficulty {
+	public float baseMinInterval = 1f;
+	public float baseMaxInterval = 4f;
+
+	public float endMinInterval = 1f;
+	public float endMaxInterval = 4f;
+
+	public int baseMinEnemies = 5;
+	public int baseMaxEnemies = 20;
+
+	public int endMinEnemies = 5;
+	public int endMaxEnemies = 20;
+
+	public bool linearScaling = true;
+}
+
 public class SpawnEnemy : MonoBehaviour {
 
 	public GameObject[] waypoints;
+
+	public WaveRandomizerDifficulty waveRandomizerDifficulty;
+
 	public Wave[] waves;
 	public int timeBetweenWaves = 5;
 	public int enemyCount = 0;
+
+
 	
 	private GameManagerBehavior gameManager;
 	
@@ -35,20 +57,41 @@ public class SpawnEnemy : MonoBehaviour {
 		for (int i = 0; i < waves.Length; ++i) {
 
 			if (waves [i].enemyPrefabs.Length < 1) {
-				GenerateRandomWave(waves[i], 5, 20);
+
+				float difficultyFactor = 0;
+				if (waveRandomizerDifficulty.linearScaling) {
+					difficultyFactor = ((float)(i)) / waves.Length;
+				} else {
+					// should be quadratic scaling (I think)
+					difficultyFactor = ((float)(i)) / waves.Length * ((float)(i)) / waves.Length;
+				}
+				float baseMinEnemyRange = (float)(waveRandomizerDifficulty.endMinEnemies - waveRandomizerDifficulty.baseMinEnemies);
+
+				int minEnemies = (int) (baseMinEnemyRange * difficultyFactor + waveRandomizerDifficulty.baseMinEnemies);
+
+				float baseMaxEnemyRange = (float)(waveRandomizerDifficulty.endMaxEnemies - waveRandomizerDifficulty.baseMaxEnemies);
+				int maxEnemies = (int) (baseMaxEnemyRange * difficultyFactor + waveRandomizerDifficulty.baseMaxEnemies);
+
+				float baseMinIntervalRange = waveRandomizerDifficulty.endMinInterval - waveRandomizerDifficulty.baseMinInterval;
+				float minSpawnInterval = baseMinIntervalRange * difficultyFactor + waveRandomizerDifficulty.baseMinInterval;
+
+				float baseMaxIntervalRange = waveRandomizerDifficulty.endMaxInterval - waveRandomizerDifficulty.baseMaxInterval;
+				float maxSpawnInterval = baseMaxIntervalRange * difficultyFactor + waveRandomizerDifficulty.baseMaxInterval;
+
+				GenerateRandomWave(waves[i], minEnemies, maxEnemies, minSpawnInterval, maxSpawnInterval);
 			}
 		}
 		
 	}
 
 
-	void GenerateRandomWave(Wave w, int minLength, int maxLength) {
+	void GenerateRandomWave(Wave w, int minLength, int maxLength, float minInterval, float maxInterval) {
 		int randomNumber = (int) (Random.value * (maxLength - minLength)) + minLength;
-
-		GenerateWave (randomNumber, w);
+		float randomNumber2 = Random.value * (maxInterval - minInterval) + minInterval;
+		GenerateWave (randomNumber, randomNumber2, w);
 	}
 
-	void GenerateWave(int numEnemies, Wave w) {
+	void GenerateWave(int numEnemies, float spawnInterval, Wave w) {
 		if (validEnemies.Length > 0) {
 
 
@@ -77,8 +120,7 @@ public class SpawnEnemy : MonoBehaviour {
 			}
 			//enemies.CopyTo (w.enemyPrefabs, 0);
 
-			randomizeSpawnInterval (w, 0.5f, 4f);
-
+			w.spawnInterval = spawnInterval;
 		} else {
 		}
 	}
@@ -116,6 +158,7 @@ public class SpawnEnemy : MonoBehaviour {
 			    GameObject.FindGameObjectWithTag("Enemy") == null) {
 
 				gameManager.Wave++;
+				print ("next wave: " + gameManager.Wave);
 				enemyCount = 0;
 				gameManager.Gold = Mathf.RoundToInt(gameManager.Gold * 1.1f);
 				enemiesSpawned = 0;
@@ -123,24 +166,40 @@ public class SpawnEnemy : MonoBehaviour {
 			}
 			// 5 
 		} else {
-			int playLevel = PlayerPrefs.GetInt ("PlayLevel");
-			Debug.Log (playLevel);
-			switch (playLevel) {
-			case 1:
-				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapOneEnd");
-				break;
-			case 2:
-				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
-				break;
-			case 3:
-				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
-				break;
+
+			if (!gameManager.gameOver) {
+				
+				int playLevel = PlayerPrefs.GetInt ("MaxLevel");
+				if (playLevel < PlayerPrefs.GetInt ("CurrentLevel")) {
+					playLevel = PlayerPrefs.GetInt ("CurrentLevel"); // fixes a bug when playing in the editor
+				}
+				print ("maxLevel: " + playLevel);
+				print ("beaten level: " + PlayerPrefs.GetInt ("CurrentLevel"));
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/LevelEnd");
+				//Debug.Log (playLevel);
+
+				/*
+				switch (playLevel) {
+				case 1:
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapOneEnd");
+					break;
+				case 2:
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapTwoEnd");
+					break;
+				case 3:
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
+					break;
+				case 0:
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
+					break;
+				}
+				*/
+				/*
+				gameManager.gameOver = true;
+				GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameWon");
+				gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
+				*/
 			}
-			/*
-			gameManager.gameOver = true;
-			GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameWon");
-			gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
-			*/
 		}	
 	}
 }

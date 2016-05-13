@@ -13,7 +13,7 @@ public class UpgradeScript : MonoBehaviour {
 
 
 
-	int[] labelcoords = {-100,-100,80,60};
+	int[] labelcoords = {-100,-100,100,60};
 
 	int tooltipDelay = 0;
 	bool canHideTooltip = true;
@@ -80,10 +80,12 @@ public class UpgradeScript : MonoBehaviour {
 
 	void OnMouseEnter() {
 		//print ("Entered");
-		labelcoords [0] = (int) Input.mousePosition.x + 20;
-		labelcoords [1] = (int) Input.mousePosition.y - labelcoords [3];
-		//print (Input.mousePosition.x);
-		//print (Input.mousePosition.y);
+		labelcoords [0] = (int) Input.mousePosition.x + 10;
+		labelcoords [1] = (int) Input.mousePosition.y - 60;
+
+		//print ("mouse: " + Input.mousePosition.x + ", " + Input.mousePosition.y);
+		//print ("tools: " + labelcoords[0] + ", " + labelcoords[1]);
+
 		tooltipDelay = 30;
 		canHideTooltip = false;
 		istooltipVisible = true;

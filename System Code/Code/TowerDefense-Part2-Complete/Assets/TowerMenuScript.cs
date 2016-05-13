@@ -184,8 +184,8 @@ public class TowerMenuScript : MonoBehaviour {
 		if (canUpgradeMonster ()) {
 			upgradeMonster ();
 			hideMenu ();
-			AudioSource audio = GameObject.Find ("Menu").GetComponent<AudioSource> ();
-			audio.PlayOneShot (audio.clip);
+			//AudioSource audio = GameObject.Find ("Menu").GetComponent<AudioSource> ();
+			//audio.PlayOneShot (audio.clip);
 
 		}
 
