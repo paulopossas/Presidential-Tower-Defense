@@ -223,6 +223,7 @@ public class GameManagerBehavior : MonoBehaviour {
 			// 2
 			if (health <= 0 && !gameOver) {
 				gameOver = true;
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/FailedMap");
 				GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameOver");
 				gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
 			}

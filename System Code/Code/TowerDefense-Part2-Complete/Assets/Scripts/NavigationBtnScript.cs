@@ -190,6 +190,7 @@ public class NavigationBtnScript : MonoBehaviour {
 
 	public void nextLevel(){
 
+
 		PlayerPrefs.SetInt ("music", music ? 1 : 0);
 		PlayerPrefs.SetInt ("sound", sound ? 1 : 0);
 
@@ -202,11 +203,16 @@ public class NavigationBtnScript : MonoBehaviour {
 		}
 
 		if (beatenLevel >= 3) {
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
-		} else {
-			PlayerPrefs.SetInt ("CurrentLevel", beatenLevel + 1);
-			StartLevel (beatenLevel + 1);
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
+			} else {
+				PlayerPrefs.SetInt ("CurrentLevel", beatenLevel + 1);
+				StartLevel (beatenLevel + 1);
+			}
 		}
+	}
+
+	public void toTitleScreen(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/TitleScreen");
 	}
 
 	public void toTitleScreen(){
