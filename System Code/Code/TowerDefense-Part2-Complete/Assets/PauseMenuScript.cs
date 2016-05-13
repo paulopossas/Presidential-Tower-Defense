@@ -10,8 +10,6 @@ public class PauseMenuScript : MonoBehaviour {
 	//private Transform mainBtn;
 	//private Transform quitBtn;
 
-
-
 	// Use this for initialization
 	void Start () {
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();

@@ -47,8 +47,9 @@ public class BulletBehavior : MonoBehaviour {
 
 		float k = transform.rotation.z;
 
-		transform.Rotate (new Vector3 (0, 0, k - Mathf.Asin (distanceX / distanceTotal)));
-
+		if (!gameManager.isPaused){
+			transform.Rotate (new Vector3 (0, 0, k - Mathf.Asin (distanceX / distanceTotal)));
+		}
 		float timeInterval = Time.time - startTime;
 		gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, timeInterval * speed / distance);
 
