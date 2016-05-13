@@ -31,6 +31,8 @@ public class NavigationBtnScript : MonoBehaviour {
 		mainMenuBtns = GameObject.FindGameObjectWithTag ("MainMenu");
 		factionSelectBtns = GameObject.FindGameObjectWithTag ("SelectFaction");
 		levelSelectBtns = GameObject.FindGameObjectWithTag ("SelectLevel");
+		GameObject btn = GameObject.FindGameObjectWithTag ("Lvl3Btn");
+		btn.SetActive (false);
 		optionsMenuBtns = GameObject.FindGameObjectWithTag ("OptionsMenu");
 		//soundBtn = optionsMenuBtns.transform.FindChild ("SoundBtn");
 		//musicBtn = optionsMenuBtns.transform.FindChild ("MusicBtn");

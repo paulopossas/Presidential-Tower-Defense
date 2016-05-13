@@ -130,7 +130,7 @@ public class SpawnEnemy : MonoBehaviour {
 				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapOneEnd");
 				break;
 			case 2:
-				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapTwoEnd");
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
 				break;
 			case 3:
 				UnityEngine.SceneManagement.SceneManager.LoadScene ("scenes/MapThreeEnd");
